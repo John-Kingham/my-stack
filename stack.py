@@ -18,7 +18,7 @@ class Stack:
         """
         Pushes ``value`` onto the top of the stack.
         """
-        if self.has_space():
+        if self.has_space() is False:
             print('Cannot push as the stack has no space.')
         else:
             new_top = Node(value)
@@ -36,6 +36,7 @@ class Stack:
         else:
             old_top = self.top_item
             self.top_item = old_top.get_next_node()
+            self.size -= 1
             return old_top.get_value()
 
     def peek(self):
