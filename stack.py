@@ -6,11 +6,12 @@ class Stack:
     A stack of Nodes.
     """
 
-    def __init__(self, limit=1000):
+    def __init__(self, name, limit=1000):
         """
         Creates a new ``Stack`` with a size limit of ``limit`.
         """
         self.top_item = None
+        self.name = name
         self.size = 0
         self.limit = limit
 
@@ -54,3 +55,18 @@ class Stack:
 
     def has_space(self):
         return self.size < self.limit 
+    
+    def get_name(self):
+        return self.name
+    
+    def get_size(self):
+        return self.size
+    
+    def print_items(self):
+        pointer = self.top_item
+        print_list = []
+        while pointer:
+            print_list.append(pointer.get_value())
+            pointer = pointer.get_next_node()
+        print_list.reverse()
+        print(f'{self.get_name()} Stack: {print_list}')
